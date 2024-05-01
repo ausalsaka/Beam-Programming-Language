@@ -1,0 +1,25 @@
+PointLoad Load1 {
+Magnitude -10.0
+Location 5.0
+Angle 90
+}
+
+PointLoad Load2{
+    Magnitude -5
+    Location 3
+    Angle 0
+}
+
+Torque Torque1{
+    Magnitude 40
+    Location 4
+
+}
+
+DistributedLoad DL1{
+    Magnitude 5
+    Length 3
+    Location 0.0
+}
+
+

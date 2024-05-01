@@ -1,0 +1,31 @@
+BeamModel:
+    loads+=Load*;
+
+Load:
+    PointLoad | Torque | DistributedLoad;
+
+PointLoad:
+    "PointLoad" name=ID '{' 
+        properties+=Property
+    '}';
+
+Torque:
+    "Torque" name=ID '{'
+        properties+=Property
+    '}';
+
+DistributedLoad:
+    "DistributedLoad" name=ID '{'
+        properties+=Property
+    '}';
+
+Property:
+    name=ID value=Value;
+
+Value:
+    FLOAT | STRING;
+
+
+Comment:
+  /\/\/.*$/
+;
