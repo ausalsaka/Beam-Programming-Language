@@ -8,7 +8,7 @@ from textx.export import metamodel_export, model_export
 
 def load_model(code):
     metamodel = textx.metamodel_from_file('Beam.tx')
-    return metamodel.model_from_file(code, )
+    return metamodel.model_from_file(code)
 
 # Define functions for beam calculations
 def calculate_reaction_forces(model):
@@ -17,6 +17,10 @@ def calculate_reaction_forces(model):
     sigmaFx = 0.0
     sigmaFy = 0.0
     sigmaMoment = 0.0
+    beamLength = 0.0
+    for prop in model.properties:
+        if prop.__class__.__name__ == "Property":
+            beamLength = prop.Value
     for load in model.loads:
         if load.__class__.__name__ == "PointLoad":
             magnitude = 0.0
@@ -59,13 +63,13 @@ def calculate_reaction_forces(model):
                     case "Location":
                         location = prop.value
             F_Ry = length * height
-            moment = F_Ry * (location + length/2)
+            moment = F_Ry * (location + length/2) 
             sigmaFy += F_Ry
             sigmaMoment += moment
 
     print(f"Resultant Forces: F_Rx= {round(sigmaFx,2)}N  F_Ry= {round(sigmaFy,2)}N  Moment= {round(sigmaMoment,2)}N*m\n")
     
-    print("Calculating Resultant forces...")
+    print("Calculating Reaction forces...")
     F_Ox = -sigmaFx
     F_Oy = -sigmaFy
     M_O = -sigmaMoment
@@ -77,6 +81,7 @@ def calculate_reaction_forces(model):
 
 def calculate_shear_force(model, position):
     # Placeholder function
+
     print(f"Calculating shear force at position {position}...")
 
 def calculate_bending_moment(model, position):
@@ -89,17 +94,17 @@ def main(debug=False):
 
     this_folder = dirname(__file__)
 
+    #DOT Diagrams
     model = metamodel_from_file(join(this_folder, 'Beam.tx'), debug=False)
     metamodel_export(model, join(this_folder, 'beam.dot'))
-
     beam_model = model.model_from_file(join(this_folder, 'code.beam'))
     model_export(beam_model, join(this_folder, 'program.dot'))
 
     # Parse the code and perform beam calculations
-    model = load_model('code.beam')
+    model = load_model('Simple1.beam')         #<-- modify this to choose a sourcecode file
     calculate_reaction_forces(model)
-    # calculate_shear_force(model, 2.5)         <--to be implemented
-    # calculate_bending_moment(model, 2.5)      <--
+    # calculate_shear_force(model, 2.5)         //<--to be implemented
+    # calculate_bending_moment(model, 2.5)      //<--
 
 
 if __name__ == "__main__":

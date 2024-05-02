@@ -23,9 +23,13 @@ Torque Torque1{
 }
 
 DistributedLoad DL1{
-    Magnitude 5
+    Magnitude -5
     Length 3
     Location 0.0
 }
 
-
+DistributedLoad DL2{
+    Magnitude 10
+    Length .75
+    Location 2.5
+}

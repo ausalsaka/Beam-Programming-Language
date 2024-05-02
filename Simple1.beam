@@ -1,0 +1,14 @@
+Length 30.0
+
+PointLoad Load{
+    //Magnitude -10   //The magnitude of the force in Newtons (N)
+    //Location 10     //distance from the y-axis in meters (m)
+    //Angle 90        //angle from the x-axis in degrees 
+
+    Magnitude -240
+    Location 2
+    Angle 90
+}
+
+
+

@@ -1,5 +1,7 @@
 BeamModel:
-    loads+=Load*;
+
+    (properties+=Property | loads+=Load)*;
+    
 
 Load:
     PointLoad | Torque | DistributedLoad;
@@ -29,3 +31,4 @@ Value:
 Comment:
   /\/\/.*$/
 ;
+
