@@ -12,7 +12,6 @@ def load_model(code):
 
 # Define functions for beam calculations
 def calculate_reaction_forces(model):
-    # Placeholder function
     print("Calculating Resultant forces...")
     sigmaFx = 0.0
     sigmaFy = 0.0
@@ -81,7 +80,6 @@ def calculate_reaction_forces(model):
 
 def calculate_shear_force(model, position):
     # Placeholder function
-
     print(f"Calculating shear force at position {position}...")
 
 def calculate_bending_moment(model, position):
@@ -101,7 +99,7 @@ def main(debug=False):
     model_export(beam_model, join(this_folder, 'program.dot'))
 
     # Parse the code and perform beam calculations
-    model = load_model('Simple1.beam')         #<-- modify this to choose a sourcecode file
+    model = load_model('Simple1.beam')         ####                            <-- modify this to choose a sourcecode file
     calculate_reaction_forces(model)
     # calculate_shear_force(model, 2.5)         //<--to be implemented
     # calculate_bending_moment(model, 2.5)      //<--
