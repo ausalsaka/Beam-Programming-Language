@@ -9,10 +9,10 @@
  
  <br />
  
-# Beam Programming Language:
-The Beam programming language is aimed at structural engineers who commonly work with beams. Beam allows engineers to define a beam’s loading conditions to quickly run calculations to find commonly needed values such as support reaction forces and internal shear and bending moment.
+# *Beam* Programming Language:
+The *Beam* programming language is aimed at structural engineers who commonly work with beams. *Beam* allows engineers to define a beam’s loading conditions to quickly run calculations to find commonly needed values such as support reaction forces and internal shear and bending moment.
 
-At its current stage of development, Beam offers support for:
+At its current stage of development, *Beam* offers support for:
 1.	Cantilever Beams
 2.	Point loads at any angle
 3.	Rectangular Distributed Loads
